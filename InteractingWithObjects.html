@@ -9,7 +9,7 @@
 
 <body>
   <a-scene>
-    <a-entity laser-controls raycaster="objects: .links; far: 5"></a-entity>
+    <a-entity progressive-controls></a-entity>
 
     <a-box color="red" position="-1.5 0 -7" clickable
       event-set__start="_event: grab-start; _target: #green; material.color: red;"
