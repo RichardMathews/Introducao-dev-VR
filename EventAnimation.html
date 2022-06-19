@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+  <title>Evento e animação</title>
+</head>
+
+<body>
+  <a-scene>
+    <a-camera position="0 1.6 0">
+      <a-cursor
+        animation__click="property: scale; startEvents: click; easing: easeInCubic; dur: 150; from: 0.1 0.1 0.1; to: 1 1 1"
+        animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 1500; from: 1 1 1; to: 0.1 0.1 0.1"
+        animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
+        cursor="fuse: true;" material="color: black; shader: flat" position="0 0 -3" geometry="primitive: ring"
+        raycaster="objects: .clickable">
+      </a-cursor>
+    </a-camera>
+
+    <a-circle id="btn_increase" radius="0.15" position="1 1.6 -3" color="#00BFFF" class="clickable"
+      animation__mouseenter="property: color; startEvents: mouseenter; from: #00BFFF; to: #00FA9A; dur: 350;"
+      animation__mouseleave="property: color; startEvents: mouseleave; from: #00FA9A; to: #00BFFF; dur: 350;"
+      event-set__scale="_event: click; _target: #box-red; animation.property: scale; animation.from: 1 1 1; animation.to: 1.5 1.5 1.5; animation.dur: 500;">
+    </a-circle>
+
+    <a-circle id="btn_decrease" radius="0.15" position="1 1.2 -3" color="#00BFFF" class="clickable"
+      animation__mouseenter="property: color; startEvents: mouseenter; from: #00BFFF; to: #00FA9A; dur: 350;"
+      animation__mouseleave="property: color; startEvents: mouseleave; from: #00FA9A; to: #00BFFF; dur: 350;"
+      event-set__scale="_event: click; _target: #box-red; animation.property: scale; animation.from: 1.5 1.5 1.5; animation.to: 1 1 1; animation.dur: 500;"></a-circle>
+
+    <a-circle id="btn_color" radius="0.15" position="1 0.8 -3" color="#00BFFF" class="clickable"
+      animation__mouseenter="property: color; startEvents: mouseenter; from: #00BFFF; to: #00FA9A; dur: 350;"
+      animation__mouseleave="property: color; startEvents: mouseleave; from: #00FA9A; to: #00BFFF; dur: 350;"
+      event-set__color="_event: click; _target: #box-red; color: #00BFFF"></a-circle>
+
+    <a-circle id="btn_rotation" radius="0.15" position="1 0.4 -3" color="#00BFFF" class="clickable"
+      animation__mouseenter="property: color; startEvents: mouseenter; from: #00BFFF; to: #00FA9A; dur: 350;"
+      animation__mouseleave="property: color; startEvents: mouseleave; from: #00FA9A; to: #00BFFF; dur: 350;"
+      event-set__rotation="_event: click; _target: #box-red; animation.property: rotation; animation.from: 0 0 0; animation.to: 0 45 0; animation.dur: 500;"></a-circle>
+
+    <a-circle id="btn_position" radius="0.15" position="1 0 -3" color="#00BFFF" class="clickable"
+      animation__mouseenter="property: color; startEvents: mouseenter; from: #00BFFF; to: #00FA9A; dur: 350;"
+      animation__mouseleave="property: color; startEvents: mouseleave; from: #00FA9A; to: #00BFFF; dur: 350;"
+      event-set__position="_event: click; _target: #box-red; position: 0 1 -4"></a-circle>
+
+    <a-box id="box-red" position="0 0 -4" scale="1 1 1" color="red" rotation="0 0 0">
+      <a-circle position="0 -0.5 0" color="#D3D3D3" radius="1" rotation="-90 0 0"></a-circle>
+    </a-box>
+  </a-scene>
+</body>
+
+</html>
